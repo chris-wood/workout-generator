@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611174240) do
+ActiveRecord::Schema.define(version: 20150616220718) do
+
+  create_table "exercise_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -19,8 +25,9 @@ ActiveRecord::Schema.define(version: 20150611174240) do
     t.string   "gif_url"
     t.string   "video_url"
     t.integer  "default_reps"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "exercise_type"
   end
 
   create_table "routine_exercises", force: :cascade do |t|
